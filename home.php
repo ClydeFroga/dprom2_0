@@ -91,7 +91,7 @@
 							<p class="dblArcticles__rbText">
 							<?php 
 									$text = get_the_excerpt();
-									echo kama_excerpt(array('maxchar'=>120, 'text'=>$text));
+									echo kama_excerpt(array('maxchar'=>180, 'text'=>$text));
 								?>
 							</p>
 						</div>

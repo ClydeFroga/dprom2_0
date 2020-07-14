@@ -40,11 +40,12 @@ get_header();
           $image_url = wp_get_attachment_image_url( $image_id, 'full' );
    ?>
 		<div class="magazine__item">
-						<a href="<?php echo get_term_link((int)$tax_term->term_id);?>" class="magazine__anchor">
-							<img src="<?php echo $image_url ?>" alt="<?php echo $tax_term->name; ?>" class="magazine__img">
-							<span class="magazine__title"><?php echo $tax_term->name; ?></span>
-						</a>
-					</div>
+
+            <a href="<?php echo get_term_link((int)$tax_term->term_id);?>" class="magazine__anchor">
+                <img src="<?php echo $image_url ?>" alt="<?php echo $tax_term->name; ?>" class="magazine__img">
+                <p class="magazine__title"><?php echo $tax_term->name; ?></p>
+            </a>
+        </div>
 		
 		<?php 
 	};
@@ -53,6 +54,7 @@ get_header();
 </section>	
 	<?php get_template_part('includes/bannerD');?>
 	</main>
+
 	<?php get_sidebar('right');?>
 	</div>
 
