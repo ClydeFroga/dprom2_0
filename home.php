@@ -9,7 +9,7 @@
 <?php
 	$args = array(
 	'posts_per_page'=> 8,
-	'category__not_in' => array(1,2,2419,2551)
+	'category__not_in' => array(1,2,2419,2551),
 );
 	$query = new WP_Query($args);
 	$homie = 0; 
@@ -96,11 +96,12 @@
 							</p>
 						</div>
 					</a>
-				</div>
+				    </div>
 					<?php
 				$homie++;
 				continue;
 			};
+
 			if($homie >= 2 && $homie<5){
 					if($homie == 2){
 						?>
@@ -122,7 +123,7 @@
                                         }
                                     ?>
                                     </div>
-                                    </div>
+                                </div>
 
                                 <span class="trplArticlesHome__heading"  onclick="event.preventDefault();window.location='<?php $category = get_the_category();
 																	$idC = $category[0]->cat_ID;
@@ -143,47 +144,52 @@
 				$homie++;
 				continue;
 				}
-				?>
-			</div>
-			<div class="hrArticles">
+
+          if($homie == 5){
+                ?>
+                </div>
+                <?php
+          }
+          ?>
+
 	<?php
-	if($homie>=5 && $homie<8){
+	if($homie>=5){
 		if($homie==5){
 			get_template_part('includes/bannerD');
 		?>
-			
+            <div class="hrArticles">
 		<?php }; ?>
 		<a href="<?php the_permalink();?>" class="hrArticle">
-				<?php 
-					$imgArr = array('class' =>'hrArticle__img');
-					if(get_the_post_thumbnail()){
-						the_post_thumbnail('full', $imgArr);	
-					}else{
-					?>
-					<img src="<?php bloginfo('template_url')?>/img/placeholder.jpg?>" alt="" class="hrArticle__img">
-					<?php
-						}
-				?>
-				<div class="hrArticle__info">
-					<h3 class="hrArticle__header">
-						<?php 
-							$text = get_the_title();
-							echo kama_excerpt(array('maxchar'=>60, 'text'=>$text));
-						?>
-					</h3>
-					<span class="hrArticle__text">
-						<?php 
-							$text = get_the_excerpt();
-							echo kama_excerpt(array('maxchar'=>150, 'text'=>$text));
-						?>
-					</span>
-					<span class="hrArticle__heading"  onclick="event.preventDefault();window.location='<?php $category = get_the_category();
-												$idC = $category[0]->cat_ID;
-												echo get_category_link($idC);
-											?>'">
-						<?php echo $category[0]->cat_name;?>
-					</span>
-				</div>
+            <?php
+                $imgArr = array('class' =>'hrArticle__img');
+                if(get_the_post_thumbnail()){
+                    the_post_thumbnail('full', $imgArr);
+                }else{
+                ?>
+                <img src="<?php bloginfo('template_url')?>/img/placeholder.jpg?>" alt="" class="hrArticle__img">
+                <?php
+                    }
+            ?>
+            <div class="hrArticle__info">
+                <h3 class="hrArticle__header">
+                    <?php
+                        $text = get_the_title();
+                        echo kama_excerpt(array('maxchar'=>60, 'text'=>$text));
+                    ?>
+                </h3>
+                <span class="hrArticle__text">
+                    <?php
+                        $text = get_the_excerpt();
+                        echo kama_excerpt(array('maxchar'=>150, 'text'=>$text));
+                    ?>
+                </span>
+                <span class="hrArticle__heading"  onclick="event.preventDefault();window.location='<?php $category = get_the_category();
+                                            $idC = $category[0]->cat_ID;
+                                            echo get_category_link($idC);
+                                        ?>'">
+                    <?php echo $category[0]->cat_name;?>
+                </span>
+            </div>
 		</a>
 		<?php
 		$homie++;

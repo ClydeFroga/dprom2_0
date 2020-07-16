@@ -16,8 +16,10 @@
 				<?php
 				foreach($terms as $key){
 					?>
-					<li class="cat-item">
-						<a href="<?php echo get_term_link($key->term_id);?>"><?php echo $key->name;?></a>
+					
+					<li class="cat-item" >
+
+						<a class="<?php $key->term_id;?>" href="<?php echo get_term_link($key->term_id);?>"><?php echo $key->name;?></a>
 					</li>
 					<?php
 				}

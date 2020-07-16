@@ -1,40 +1,17 @@
-<?php
-    $myV = rand(0,1);
-    if($myV==0){
-        ?>
-        <!--Zirax -->
-       
-<div id="adfox_159219895229939597"></div>
+<!--AdFox START-->
+<!--yandex_igrader@pgmedia.ru-->
+<!--Площадка: https://dprom.online/ / * / *-->
+<!--Тип баннера: Banner A_dprom-->
+<!--Расположение: <верх страницы>-->
+<div id="adfox_159469895344353141"></div>
 <script>
     window.Ya.adfoxCode.create({
         ownerId: 299653,
-        containerId: 'adfox_159219895229939597',
+        containerId: 'adfox_159469895344353141',
         params: {
-            p1: 'ckzrg',
-            p2: 'guze',
-            pfc: 'cykwl',
-            pfb: 'iajxx'
+            pp: 'g',
+            ps: 'dgkb',
+            p2: 'gwsv'
         }
     });
 </script>
-        <?php
-        }else{
-?>
-
-<!--Тип баннера:{Хэвел}-->
-<div id="adfox_159219617216593816"></div>
-<script>
-    window.Ya.adfoxCode.create({
-        ownerId: 299653,
-        containerId: 'adfox_159219617216593816',
-        params: {
-            p1: 'ckzrg',
-            p2: 'guze',
-            pfc: 'cykxj',
-            pfb: 'iajyj'
-        }
-    });
-</script>
-<?php
-        }
-        ?>

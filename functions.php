@@ -10,6 +10,10 @@ add_action('wp_enqueue_scripts', 'my_styles');
 /*____END MAinStyles____*/
 /*______ADD myScripts_______*/
   function my_scripts(){
+      wp_enqueue_script( 'catLoad', get_template_directory_uri().'/js/catLoad.js', array('jquery'));
+      wp_localize_script('catLoad', 'catLoad', array(
+              'ajaxurl' => admin_url('admin-ajax.php')
+      ));
     if(is_front_page()){
       wp_enqueue_script( 'burnScript', get_template_directory_uri().'/js/unitMoving.js',array(), null, true);
       wp_enqueue_script( 'newsScript', get_template_directory_uri().'/js/news.js',array(), null, true);
@@ -19,14 +23,35 @@ add_action('wp_enqueue_scripts', 'my_styles');
   }
   if(is_single()){
    wp_enqueue_script( 'shareScript', get_template_directory_uri().'/js/share.js',null,null, true); 
-   wp_enqueue_script( 'singleScript', get_template_directory_uri().'/js/single.js',array(),null, true); 
+   wp_enqueue_script( 'singleScript', get_template_directory_uri().'/js/single.js',array(),null, true);
   }
 }
 add_action('wp_enqueue_scripts', 'my_scripts');
 /*______End myScripts_______*/
 /*___________START AJAX LOAD_______________*/
-  add_action('wp_ajax_loadmore', 'true_load_posts');
-  add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+
+add_action('wp_ajax_catLoad', 'catLoad');
+add_action('wp_ajax_nopriv_catLoad', 'catLoad');
+
+function catLoad(){
+
+    $link = !empty($_POST['link']) ? esc_attr($_POST['link']) : false;
+    $slug = $link ? wp_basename($link) : false;
+
+    query_posts("category_name=$slug");
+    if (have_posts()) {  // если есть посты
+        get_template_part( 'includes/categoryAjax', get_post_format() );
+    } else { // если нет, то таксономия mainthemes
+        query_posts( array( 'mainthemes' => "$slug" ) );
+        get_template_part( 'includes/taxonomyAjax', get_post_format() );
+    }
+
+wp_die();
+}
+
+add_action('wp_ajax_loadmore', 'true_load_posts');
+add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+
 function true_load_posts(){
   $args = unserialize( stripslashes( $_POST['query'] ) );
   $args['paged'] = $_POST['page'] + 1; // следующая страница
