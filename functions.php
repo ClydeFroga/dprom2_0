@@ -33,7 +33,7 @@ add_action('wp_enqueue_scripts', 'my_scripts');
 add_action('wp_ajax_catLoad', 'catLoad');
 add_action('wp_ajax_nopriv_catLoad', 'catLoad');
 
-function catLoad(){
+/*function catLoad(){
 
     $link = !empty($_POST['link']) ? esc_attr($_POST['link']) : false;
     $slug = $link ? wp_basename($link) : false;
@@ -47,7 +47,7 @@ function catLoad(){
     }
 
 wp_die();
-}
+} */
 
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');

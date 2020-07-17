@@ -16,6 +16,7 @@
 	if($query->have_posts()){
 		while($query->have_posts() && $homie<8){
 				$query->the_post();
+				
 				if($homie == 0){
 					?>
 					<div class="dblArcticles">
@@ -63,6 +64,7 @@
 					$homie++;
 					continue;
 				};
+				
 				if($homie == 1){
 					?>
 					<a href="<?php the_permalink();?>" class="dblArcticles__rightBlock">
@@ -102,7 +104,7 @@
 				continue;
 			};
 
-			if($homie >= 2 && $homie<5){
+				if($homie >= 2 && $homie<5){
 					if($homie == 2){
 						?>
 						<div class="trplArticlesHome">
@@ -145,7 +147,7 @@
 				continue;
 				}
 
-          if($homie == 5){
+				if($homie == 5){
                 ?>
                 </div>
                 <?php
