@@ -3,6 +3,7 @@
     src: url("fonts/FiraSans-Light.woff") format("woff"),
     url("fonts/FiraSans-Light.ttf") format("truetype"),
     url("fonts/FiraSans-Light.svg") format("svg");
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url("fonts/pfbeausanspro-xthin.woff") format("woff"),
     url("fonts/pfbeausanspro-xthin.ttf") format("truetype"),
     url("fonts/pfbeausanspro-xthin.svg") format("svg");
+    font-display: swap;
 }
 
 @font-face {
@@ -20,10 +22,12 @@
          url("fonts/AkrobatLight.woff") format("woff"),
          url("fonts/AkrobatLight.ttf") format("truetype"),
          url("fonts/AkrobatLight.svg#AkrobatLight") format("svg");
+    font-display: swap;
 }
 @font-face {
     font-family:'RobotoBold';
     src:url("fonts/Roboto-Bold.ttf") format("truetype");
+    font-display: swap;
 }
 @font-face {
     font-family:'slick';
@@ -31,16 +35,19 @@
     url("fonts/slick.eot") format("embedded-opentype"),
     url("fonts/slick.woff") format("woff"),
     url("fonts/slick.svg") format("svg");
+    font-display: swap;
 }
 @font-face {
     font-family: "Roboto Regular";
     font-style: normal;
     font-weight: 400;
     src: url("fonts/Roboto-Regular.ttf");
+    font-display: swap;
 }
 @font-face {
     font-family: "Roboto Medium";
     font-style: normal;
     font-weight: 500;
     src: url("fonts/Roboto-Medium.ttf");
+    font-display: swap;
 }

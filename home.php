@@ -25,7 +25,7 @@
                                 <?php
                                     $imgArr = array('class' =>'dblArcticles__lbImg');
                                     if(get_the_post_thumbnail()){
-                                        the_post_thumbnail('large', $imgArr);
+                                        the_post_thumbnail('thumbnail', $imgArr);
                                     }else{
                                         ?>
                                     <img src="<?php bloginfo('template_url')?>/img/placeholder2.jpg?>" alt="" class="dblArcticles__lbImg">

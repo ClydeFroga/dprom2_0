@@ -6,7 +6,7 @@
    	<meta property="fb:app_id" content="2005773896303783"/>
 	<link rel="shortcut icon" type="image/png" href="<?php bloginfo('template_url')?>/img/favicon.png">
 	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css?version=199">
-	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/fontStyle.css?version=1">
+	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/fontStyle.css?version=2">
 	<meta name="yandex-verification" content="05fbeb46b6985c8b"/>
 	<?php wp_head();?>
 	<script charset="UTF-8" src="//cdn.sendpulse.com/js/push/74999fab3ffe98925101622225952634_1.js" async></script>
