@@ -1,7 +1,8 @@
 <div class="sidebar-right">
 	<div class="foxy">
 		<?php get_template_part('includes/foxy1');?>
-	</div>				
+	</div>
+ 
 	<?php dynamic_sidebar('cat-menu');
 		$terms = get_terms( [
 		'taxonomy' => array('category', 'mainthemes'),

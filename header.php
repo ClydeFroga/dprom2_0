@@ -10,12 +10,17 @@
 	<meta name="yandex-verification" content="05fbeb46b6985c8b"/>
 	<?php wp_head();?>
 	<script charset="UTF-8" src="//cdn.sendpulse.com/js/push/74999fab3ffe98925101622225952634_1.js" async></script>
-	
 	<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?160",t.onload=function(){VK.Retargeting.Init("VK-RTRG-356287-12bDs"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-356287-12bDs" style="position:fixed; left:-999px;" alt=""/></noscript>
 
-<?php 
+<?php
+	if (is_page_template('dayOfMiner.php')){ ?>
+	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.css"/>
+	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.css"/>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <?php wp_enqueue_script( 'mining', get_template_directory_uri().'/js/mining.js', array('jquery') );
+     }
 if (is_page_template('charcoalMining.php')){
 	wp_enqueue_script( 'true_loadmore', get_stylesheet_directory_uri() . '/js/loadmore2.js', array('jquery') );
 	wp_enqueue_script( 'brands', get_stylesheet_directory_uri() . '/js/brands.js', array('jquery') );

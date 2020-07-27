@@ -23,9 +23,34 @@ add_action('wp_enqueue_scripts', 'my_styles');
   }
 }
 add_action('wp_enqueue_scripts', 'my_scripts');
+
 /*______End myScripts_______*/
 /*___________START AJAX LOAD_______________*/
 
+add_action('wp_ajax_mining', 'load_mining');
+add_action('wp_ajax_nopriv_mining', 'load_mining');
+
+function load_mining(){
+	$args = unserialize( stripslashes( $_POST['query'] ) );
+	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['post_status'] = 'publish';
+	$args['posts_per_page'] = 3;
+ 
+	// обычно лучше использовать WP_Query, но не здесь
+	query_posts( $args );
+	// если посты есть
+	if( have_posts() ) :
+ 
+		// запускаем цикл
+		while( have_posts() ): the_post();
+ 
+			get_template_part( 'includes/mining', get_post_format() );
+ 
+		endwhile;
+ 
+	endif;
+	die();
+}
 
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
