@@ -27,6 +27,60 @@ add_action('wp_enqueue_scripts', 'my_scripts');
 /*______End myScripts_______*/
 /*___________START AJAX LOAD_______________*/
 
+add_action('wp_ajax_mwr1', 'load_mwr1');
+add_action('wp_ajax_nopriv_mwr1', 'load_mwr1');
+
+function load_mwr1() {
+	$args = unserialize( stripslashes( $_POST['query'] ) );
+	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['post_status'] = 'publish';
+	$args['posts_per_page'] = 8;
+ 
+	// обычно лучше использовать WP_Query, но не здесь
+	query_posts( $args );
+	// если посты есть
+	if( have_posts() ) :
+ 
+		// запускаем цикл
+		while( have_posts() ): the_post();
+ 
+			get_template_part( 'includes/mwr1', get_post_format() );
+ 
+		endwhile;
+ 
+	endif;
+	die();
+}
+
+add_action('wp_ajax_mwr2', 'load_mwr2');
+add_action('wp_ajax_nopriv_mwr2', 'load_mwr2');
+
+function load_mwr2() {
+	$args = unserialize( stripslashes( $_POST['query'] ) );
+	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['post_status'] = 'publish';
+	$args['posts_per_page'] = 4;
+ 
+	// обычно лучше использовать WP_Query, но не здесь
+	query_posts( $args );
+	// если посты есть
+	if( have_posts() ) :
+ 
+		// запускаем цикл
+		while( have_posts() ): the_post();
+ 
+			get_template_part( 'includes/mwr2', get_post_format() );
+ 
+		endwhile;
+ 
+	endif;
+	die();
+}
+
+
+
+
+
 add_action('wp_ajax_mining', 'load_mining');
 add_action('wp_ajax_nopriv_mining', 'load_mining');
 
@@ -502,6 +556,77 @@ function dimox_breadcrumbs() {
 }
 /*_______End BreadCrumbs________*/
 /*_______Start TaxonomyTheme____*/
+function special_tax() {
+  register_taxonomy('specials',
+    array('post','functions'),
+    array(
+      'hierarchical' => true,
+      'labels' => array(
+        'name' => 'Спецпроекты',
+        'singular_name' => 'Спецпроект',
+        'search_items' =>  'Найти спецпроект',
+        'popular_items' => 'Популярные спецпроекты',
+        'all_items' => 'Все спецпроекты',
+        'parent_item' => null,
+        'parent_item_colon' => null,
+        'edit_item' => 'Редактировать спецпроект',
+        'update_item' => 'Обновить спецпроект',
+        'add_new_item' => 'Добавить новый спецпроект',
+        'new_item_name' => 'Название нового спецпроект',
+        'separate_items_with_commas' => 'Разделяйте спецпроекты запятыми',
+        'add_or_remove_items' => 'Добавить или удалить спецпроект',
+        'choose_from_most_used' => 'Выбрать из наиболее часто используемых спецпроектов',
+        'menu_name' => 'Спецпроекты'
+      ),
+      'public' => true,
+      'show_in_nav_menus' => true,
+      'show_ui' => true,
+      'show_tagcloud' => true,
+      'query_var' => true,
+      'rewrite' =>true,
+      'has_archive'=>'themes',
+      'show_in_rest' => true,
+      'rest_base' => 'specials',
+    )
+  );
+}
+add_action( 'init', 'special_tax', 0 );
+
+add_action( 'init', 'postForMWR' );
+function postForMWR(){
+	register_post_type( 'project', [
+		'label'  => null,
+		'labels' => [
+			'name'               => 'Записи спецпроектов', // основное название для типа записи
+			'singular_name'      => 'Запись спецпроекта', // название для одной записи этого типа
+			'add_new'            => 'Добавить запись', // для добавления новой записи
+			'add_new_item'       => 'Добавление записи', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование записи', // для редактирования типа записи
+			'new_item'           => 'Новая запись', // текст новой записи
+			'view_item'          => 'Смотреть запись', // для просмотра записи этого типа.
+			'search_items'       => 'Искать запись', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => 'Запись', // для родителей (у древовидных типов)
+			'menu_name'          => 'Записи спецпроектов', // название меню
+		],
+		'description'         => '',
+		'public'              => true,
+		'show_in_menu'        => null,
+		'show_in_rest'        => true,
+		'rest_base'           => null,
+		'menu_position'       => null,
+		'menu_icon'           => null,
+		'hierarchical'        => false,
+		'supports'            => [ 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+		'taxonomies'          => ['specials', 'category', 'post_tag', 'mainthemes'],
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	] );
+}
+
+
 function add_new_taxonomies() {  
   register_taxonomy('mainthemes',
     array('post','functions'),

@@ -30,6 +30,7 @@ $id = get_the_ID();
 <div class="table">
 	<div class="middle-block">
 		<?php get_sidebar('single');?>
+		
 	<main>
 		<article class="singleArticle">
 			<header class="singleArticle__title">

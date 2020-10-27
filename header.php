@@ -1,57 +1,74 @@
 <!DOCTYPE html>
 <html lang="<?php bloginfo('language');?>">
 <head>
-	<meta charset="<?php bloginfo('charset');?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-   	<meta property="fb:app_id" content="2005773896303783"/>
-	<link rel="shortcut icon" type="image/png" href="<?php bloginfo('template_url')?>/img/favicon.png">
-	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css?version=199">
-	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/fontStyle.css?version=2">
-	<meta name="yandex-verification" content="05fbeb46b6985c8b"/>
-	<?php wp_head();?>
-	<script charset="UTF-8" src="//cdn.sendpulse.com/js/push/74999fab3ffe98925101622225952634_1.js" async></script>
-	<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?160",t.onload=function(){VK.Retargeting.Init("VK-RTRG-356287-12bDs"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<noscript><img src="https://vk.com/rtrg?p=VK-RTRG-356287-12bDs" style="position:fixed; left:-999px;" alt=""/></noscript>
-
-<?php
-	if (is_page_template('dayOfMiner.php')){ ?>
-	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.css"/>
-	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.css"/>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <?php wp_enqueue_script( 'mining', get_template_directory_uri().'/js/mining.js', array('jquery') );
-     }
-if (is_page_template('charcoalMining.php')){
-	wp_enqueue_script( 'true_loadmore', get_stylesheet_directory_uri() . '/js/loadmore2.js', array('jquery') );
-	wp_enqueue_script( 'brands', get_stylesheet_directory_uri() . '/js/brands.js', array('jquery') );
-}
-if(is_category(2)){
-	wp_enqueue_script( 'ajnews', get_stylesheet_directory_uri() . '/js/ajnews.js', array('jquery') );
-}
-if(is_category(2419)){
-	echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>";
-	wp_enqueue_script( 'ajnews', get_stylesheet_directory_uri() . '/js/wow.min.js', array('jquery') );
-}
-if(is_category(2551)){
-?>
-<meta property="og:title" content="#Коронакризис в пролёте  | Добывающая промышленность" />
-<meta property="og:description" content="Актуальные задачи и современные решения. Достижения и рекорды. Мнения и прогнозы. Работа отрасли в условиях новой реальности." />
-<meta property="og:url" content="https://dprom.online/topics/covid-19/" />
-<meta property="og:site_name" content="Добывающая промышленность" />
-<meta property="og:image" content="https://dprom.online/wp-content/uploads/2020/04/dpromcovid.jpg" />
-<meta property="og:image:secure_url" content="https://dprom.online/wp-content/uploads/2020/04/dpromcovid.jpg" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="«#Коронакризис в пролёте  | Добывающая промышленность" />
-<meta name="twitter:description" content="Актуальные задачи и современные решения. Достижения и рекорды. Мнения и прогнозы. Работа отрасли в условиях новой реальности." />
-<meta name="twitter:image" content="https://dprom.online/wp-content/uploads/2020/04/dpromcovid.jpg" />
-<?php
-}
-if(is_single()){
-	 wp_enqueue_script( 'true_loadmore_single', get_stylesheet_directory_uri() . '/js/loadmoreSingle.js', array(),null,true );
-}
-?>
-</head>
+		<meta charset="<?php bloginfo('charset');?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="fb:app_id" content="2005773896303783"/>
+		<link rel="shortcut icon" type="image/png" href="<?php bloginfo('template_url')?>/img/favicon.png">
+		<link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css?version=256">
+		<link rel="stylesheet" href="<?php bloginfo('template_url')?>/fontStyle.css?version=1">
+		<meta name="yandex-verification" content="05fbeb46b6985c8b"/>
+		<?php wp_head();?>
+		<script charset="UTF-8" src="//cdn.sendpulse.com/js/push/74999fab3ffe98925101622225952634_1.js" async></script>
+		
+		<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?160",t.onload=function(){VK.Retargeting.Init("VK-RTRG-356287-12bDs"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<noscript><img src="https://vk.com/rtrg?p=VK-RTRG-356287-12bDs" style="position:fixed; left:-999px;" alt=""/></noscript>
+		<?php
+			get_template_part('includes/yaMetrika');
+			if (is_page_template('charcoalMining.php')){
+				wp_enqueue_script( 'true_loadmore', get_stylesheet_directory_uri() . '/js/loadmore2.js', array('jquery') );
+				wp_enqueue_script( 'brands', get_stylesheet_directory_uri() . '/js/brands.js', array('jquery') );
+			}
+			if(is_category(2)){
+				wp_enqueue_script( 'ajnews', get_stylesheet_directory_uri() . '/js/ajnews.js', array('jquery') );
+			}
+			if(is_category(2419)){
+				echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>";
+				wp_enqueue_script( 'ajnews', get_stylesheet_directory_uri() . '/js/wow.min.js', array('jquery') );
+			}
+			if(is_category(2551)){
+				?>
+				<meta property="og:title" content="#Коронакризис в пролёте  | Добывающая промышленность" />
+				<meta property="og:description" content="Актуальные задачи и современные решения. Достижения и рекорды. Мнения и прогнозы. Работа отрасли в условиях новой реальности." />
+				<meta property="og:url" content="https://dprom.online/topics/covid-19/" />
+				<meta property="og:site_name" content="Добывающая промышленность" />
+				<meta property="og:image" content="https://dprom.online/wp-content/uploads/2020/04/dpromcovid.jpg" />
+				<meta property="og:image:secure_url" content="https://dprom.online/wp-content/uploads/2020/04/dpromcovid.jpg" />
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:title" content="«#Коронакризис в пролёте  | Добывающая промышленность" />
+				<meta name="twitter:description" content="Актуальные задачи и современные решения. Достижения и рекорды. Мнения и прогнозы. Работа отрасли в условиях новой реальности." />
+				<meta name="twitter:image" content="https://dprom.online/wp-content/uploads/2020/04/dpromcovid.jpg" />
+				<?php
+			}
+			if(is_single()){
+				wp_enqueue_script( 'true_loadmore_single', get_stylesheet_directory_uri() . '/js/loadmoreSingle.js', array(),null,true );
+			}
+			
+			if (is_page_template('dayOfMiner.php')){ ?>
+				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.css"/>
+				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.css"/>
+				<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+				<?php wp_enqueue_script( 'mining', get_template_directory_uri().'/js/mining.js', array('jquery') );
+			}
+		?>
+	</head>
 <body>
+
+<a class="MWRLink" href="<?php echo get_home_url() . '/specials/mwr2020/'?>">
+	<div class="header">
+		<span>СПЕЦПРОЕКТ</span>
+		<div class="container-md">
+			<h1>
+				Mining World Russia 2020
+			</h1>
+		</div>
+		<div class="clickMePlease">
+			<div>ПЕРЕЙТИ</div>
+		</div>
+	</div>
+</a>
+
 	<div class="darkMenu">
 			<div class="wrapper">
 				<?php wp_nav_menu([

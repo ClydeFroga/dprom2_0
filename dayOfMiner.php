@@ -96,7 +96,7 @@ Template Post Type: page
 			<div class="shaht-adv">
 				<div class="">
 					<img src="https://picsum.photos/250/375/?random=5" alt="">
-                    <!--                    --><?php //get_template_part('includes/foxy1'); ?>
+					<?php //get_template_part('includes/foxy1'); ?>
 				</div>
 			</div>
 		</div>
@@ -275,6 +275,7 @@ Template Post Type: page
                     </script>
                     <div class="anonce" id="mining2">Читать ещё</div>
                   <?php endif; ?>
+									
                 </div>
                 
             </div>

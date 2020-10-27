@@ -9,7 +9,17 @@ $image_url = wp_get_attachment_image_url( $image_id, 'full' );
 				<main>
 					<article class="singleArticle">
 						<h1 class="seriesTitle"><?php echo single_term_title('',0);?></h1>
-						<img src="<?php echo $image_url ?>" alt="<?php echo $tax_term->name; ?>" class="magazine__img" style="margin-bottom: 2.5em;">
+						<div class="imgAndLinks">
+							<img src="<?php echo $image_url ?>" alt="<?php echo $tax_term->name; ?>" class="magazine__img" style="margin-bottom: 2.5em;">
+							<div>
+							<?php if( get_field('floowie_link', 'term_' . $term_id )): ?>
+								<a href="<?php the_field('floowie_link', 'term_' . $term_id); ?>">Листать журнал</a>
+							<?php endif; ?>
+								<?php if( get_field('pdf_magazine', 'term_' . $term_id )): ?>
+									<a href="<?php the_field('pdf_magazine', 'term_' . $term_id); ?>">Смотреть pdf</a>
+								<?php endif; ?>
+							</div>
+						</div>
 					</article>
 					<?php 
 					if(have_posts()){
