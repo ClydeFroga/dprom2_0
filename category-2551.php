@@ -1,20 +1,6 @@
 <?php get_header();?>
 </div>
-	<div class="tinaWell__wrapper">
-			<div class="tinaWell">
-			</div>
-		<div class="tinaWell__description">
-				<h1 class="tinaWell__title">
-					#dprom_нонстоп
-				</h1>
-				<span class="tinaWell__desc">
-					<?php echo category_description(); ?>
-				</span>
-				<p class="tinaWell__spec">
-					Специальный проект dprom.online. Коронакризис в пролёте
-				</p>
-			</div>
-		</div>
+
 		<div class="wrapper">
 		<div class="middle-block">
 			<main class="spec">

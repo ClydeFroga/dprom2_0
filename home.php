@@ -9,7 +9,7 @@
 <?php
 	$args = array(
 	'posts_per_page'=> 8,
-	'category__not_in' => array(1,2,2419,2551)
+	'category__not_in' => array(1,2,2419,2551, 1415)
 );
 	$query = new WP_Query($args);
 	$homie = 0; 

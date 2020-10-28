@@ -12,7 +12,7 @@
 	<meta name="yandex-verification" content="05fbeb46b6985c8b"/>
 	
 	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/spec/swiper.css">
-	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/spec/style.css?version=26">
+	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/spec/style.css?version=47">
 	<link rel="stylesheet" href="<?php bloginfo('template_url')?>/fontStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script charset="UTF-8" src="<?php bloginfo('template_url')?>/js/mwr2020.js"></script>
@@ -159,7 +159,7 @@
 				
 				<div class="tags">
 					Теги:
-					<?php echo get_the_tag_list('','',''); ?>
+					<?php echo  get_the_tag_list('','',''); ?>
 				</div>
 				
 				<footer class="singleArticle__ft">
@@ -321,6 +321,7 @@
 						<a href="<?php the_permalink();?>" class="swiper-slide">
 							<div>
 								<?php the_post_thumbnail('medium'); ?>
+								<div class="forTag"></div>
 								<span class="allWidth__cat">
 							<?php echo get_the_category()[0] -> name; ?>
 						</span>

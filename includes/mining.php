@@ -12,7 +12,7 @@
 			</div>
 		</a>
 	</div>
-	<a href="#" class="shaht-post__title">
+	<a href="<?php the_permalink(); ?>" class="shaht-post__title">
 		<h3><?php the_title(); ?></h3>
 	</a>
 	<p class="shaht-post__excerpt">

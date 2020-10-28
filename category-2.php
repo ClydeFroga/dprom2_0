@@ -5,6 +5,9 @@
 			<div class="middle-block">
 				<main class="spec">
 					<h1 class="spec__title">Новости</h1>
+					<style>
+						*{transition: 0.5s;}
+					</style>
 <?php
 	$homie = 0; 
 	if(have_posts()){

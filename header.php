@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta property="fb:app_id" content="2005773896303783"/>
 		<link rel="shortcut icon" type="image/png" href="<?php bloginfo('template_url')?>/img/favicon.png">
-		<link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css?version=256">
+		<link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css?version=257">
 		<link rel="stylesheet" href="<?php bloginfo('template_url')?>/fontStyle.css?version=1">
 		<meta name="yandex-verification" content="05fbeb46b6985c8b"/>
 		<?php wp_head();?>

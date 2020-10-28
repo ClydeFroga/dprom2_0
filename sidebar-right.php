@@ -1,8 +1,7 @@
 <div class="sidebar-right">
 	<div class="foxy">
 		<?php get_template_part('includes/foxy1');?>
-	</div>
- 
+	</div>				
 	<?php dynamic_sidebar('cat-menu');
 		$terms = get_terms( [
 		'taxonomy' => array('category', 'mainthemes'),
@@ -17,10 +16,8 @@
 				<?php
 				foreach($terms as $key){
 					?>
-					
-					<li class="cat-item" >
-
-						<a class="<?php $key->term_id;?>" href="<?php echo get_term_link($key->term_id);?>"><?php echo $key->name;?></a>
+					<li class="cat-item">
+						<a href="<?php echo get_term_link($key->term_id);?>"><?php echo $key->name;?></a>
 					</li>
 					<?php
 				}

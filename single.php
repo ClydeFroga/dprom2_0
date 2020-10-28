@@ -1,11 +1,19 @@
 <?php get_header(); 
 the_post();
 $id = get_the_ID();
+$dbl = false;
+$partner = false;
 	$post_tags = get_the_tags($id);
 	if($post_tags){
 		$tags_array = array();
 		foreach($post_tags as $key) {
 			$tags_array[] = $key->term_id;
+			if($key->term_id == 2140){
+					$dbl = true;
+			}
+			if($key->term_id == 2703){
+				$partner = true;
+			}
 		 }	
 	}
 	$post_themes;
@@ -30,7 +38,6 @@ $id = get_the_ID();
 <div class="table">
 	<div class="middle-block">
 		<?php get_sidebar('single');?>
-		
 	<main>
 		<article class="singleArticle">
 			<header class="singleArticle__title">
@@ -38,6 +45,29 @@ $id = get_the_ID();
 					<span class="metaData__date"><?php  the_time('d.m.Y')?></span>
 				</div>
 			<?php if ( function_exists( 'dimox_breadcrumbs' ) ) dimox_breadcrumbs(); ?>
+				<?php if($dbl == true){
+						?>
+				<div class="hr-shaht">
+                <!--AdFox START-->
+                <!--yandex_igrader@pgmedia.ru-->
+                <!--Площадка: https://dprom.online/ / * / *-->
+                <!--Тип баннера: dprom_DayOfMiner-->
+                <!--Расположение: <верх страницы>-->
+                <div id="adfox_15976320095676602" style="margin-top:-30px;"></div>
+                <script>
+                    window.Ya.adfoxCode.create({
+                        ownerId: 299653,
+                        containerId: 'adfox_15976320095676602',
+                        params: {
+                            pp: 'g',
+                            ps: 'dgkb',
+                            p2: 'gxmm'
+                        }
+                    });
+                </script>
+                </div>
+						<?php
+					}?>
 				<h1><?php the_title();?></h1>
 			</header>
 			<?php the_content();
@@ -49,7 +79,8 @@ $id = get_the_ID();
      			echo '<div class="writer"><span class="writer__text" >Статья опубликована в журнале <a href="'. get_term_link( $term->term_id, $term->taxonomy ) .'">'. $term->name .'</a></span></div>';
     }
    }
-			the_tags( '<ul class="marks"><span class="marks__text">Теги:</span><li class="marks__link">','</li><li class="marks__link">','</li></ul>'); ?>
+			the_tags( '<ul class="marks"><span class="marks__text">Теги:</span><li class="marks__link">','</li><li class="marks__link">','</li></ul>'); 
+			?>
 
 			<footer class="singleArticle__ft">
 				<?php get_template_part('includes/sharing');	
